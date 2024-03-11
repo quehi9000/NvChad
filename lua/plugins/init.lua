@@ -198,7 +198,9 @@ local default_plugins = {
       require("core.utils").load_mappings "nvimtree"
     end,
     opts = function()
-      return require "plugins.configs.nvimtree"
+      local nvimtree_config = require "plugins.configs.nvimtree"
+      nvimtree_config.view.side = 'right'
+      return nvimtree_config
     end,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "nvimtree")
